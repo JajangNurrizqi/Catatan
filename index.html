@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penulis Catatan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-light py-5">
+
+    <div class="container" style="max-width: 600px;">
+        <h3 class="mb-4 text-center fw-bold">Daftar Catatan</h3>
+
+        <!-- Card Input Form -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <form id="taskForm">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Isi Catatan..." name="task" id="taskInput"
+                            aria-label="Isi Catatan" autocomplete="off">
+                        <button class="btn btn-primary" type="submit" id="saveBtn" disabled>
+                            Simpan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Card Daftar Catatan -->
+        <div class="card shadow-sm mb-3">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <span class="fw-semibold">Tugas Tersimpan</span>
+                <span class="badge bg-secondary rounded-pill" id="taskCount">0</span>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush" id="taskList">
+                    <!-- Item catatan akan dirender di sini -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tombol Debug Console -->
+        <div class="text-end">
+            <button type="button" class="btn btn-sm btn-outline-secondary" commandfor="outputJSON" command="show-modal"
+                onclick="showJSON()">
+                Export Array Ke JSON
+            </button>
+        </div>
+    </div>
+
+
+    <dialog class="dialog" id="outputJSON">
+        <div class="dialog-header">
+            <h1 class="dialog-title">Output JSON</h1>
+            <button type="button" class="btn-close" commandfor="outputJSON" command="close" aria-label="Close"></button>
+        </div>
+        <pre class="bg-light p-3 rounded border mb-0"
+            style="max-height: 300px; overflow-y: auto;"><code id="jsonOutput"></code></pre>
+        <div class="dialog-footer">
+            <button type="button" class="btn-solid theme-secondary" commandfor="outputJSON"
+                command="close">Tutup</button>
+        </div>
+    </dialog>
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
